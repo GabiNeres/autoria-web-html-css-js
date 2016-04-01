@@ -1,0 +1,135 @@
+body{
+    color:black;
+    background-image: url(bggame.png);
+}
+
+
+table{
+    border-spacing:0px;
+    padding:0px;
+    border-width: 0px;
+    background-color: rgb(192,192,192);
+    
+}
+td{
+    width:20px;
+    padding:0px;
+    
+}
+tr{
+    height:20px;
+    padding:0px;
+    
+}
+
+#menu{
+    padding:10px;
+    z-index: 2;
+    position: fixed;
+    top:40px;
+    left:380px;
+    background-color: #F0F8FF;
+    background-image:url(bgmenu1.gif);
+    width: 557px;
+    height:527px;
+}
+#titulo{
+    position:absolute;
+    top:50px;
+    left:250px;
+}
+
+#chibimoon{
+    width:100px;
+    position: absolute;
+    top:50px;
+    left:120px;
+    
+}
+#playchibi{
+    position: absolute;
+    top:400px;
+    left:200px;
+}
+
+#play{
+    position: absolute;
+    top:200px;
+    left:140px;
+
+}
+#play:hover{
+    opacity: 0.2;
+    transition: opacity 0.5s ease-in-out;
+    -moz-transition: opacity 0.5s ease-in-out;
+    -webkit-transition: opacity 0.5s ease-in-out;
+}
+#help{
+    position: absolute;
+    top:270px;
+    left:140px;
+}
+#help:hover{
+    opacity: 0.2;
+    transition: opacity 0.5s ease-in-out;
+    -moz-transition: opacity 0.5s ease-in-out;
+    -webkit-transition: opacity 0.5s ease-in-out;
+}
+
+#caixa{
+    background-image: url(bggame.png);
+    text-align:right;
+    position: fixed;
+    top:40px;
+    left:380px;
+    z-index:1;
+}
+#mov{
+    font-weight: bold;
+    color:#68228B;
+}
+.movCont{
+    font-weight: bold;
+    color:#68228B;
+}
+#botao{
+    margin-bottom: 10px;
+    margin-left:20px;
+    border-top:2px solid #68228B;
+    border-left:2px solid #68228B;
+    border-right:2px solid #68228B;
+    border-bottom:2px solid #68228B;
+    padding:5px 10px;
+    font-size:10px;
+    background-color:#CD96CD;
+    font-weight:bold;
+    color:#68228B;
+}
+#fim{
+    z-index: 0;
+    position: fixed;
+    top:40px;
+    left:380px;
+    background-color: #ffffff;
+    width: 557px;
+    height:527px;
+}
+
+#pfin{
+    width:200px;
+    
+}
+#msgfim{
+    margin:15px;
+}
+#msgfinal{
+    position: absolute;
+    top:350px;
+    left:50px;
+    font-size: 25px;
+    text-align: justify;
+    font-family: calibri;
+    color:#f5308a;
+    font-weight: bold;
+    
+}

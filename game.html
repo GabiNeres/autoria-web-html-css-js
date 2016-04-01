@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Ajude a Chibiusa</title>
+        <meta charset="UTF-8">
+        <link rel="icon" type="image/png" href="icon.gif">
+        <link rel="stylesheet" href="style.css">
+		<audio autoplay="autoplay">
+			<source src="song.mp3" type="audio/mp3" />
+		</audio>
+
+        <script type="text/javascript">
+
+            var parede = "parede";
+            var piso = "piso";
+            var objetivo = "objetivo";
+            var lunap = "lunap";
+            var chibiusa = "<img class='chibi' src='chibiback.png'>";
+
+
+            var posX = 2;
+            var posY = 10;
+
+            var blocGam = construirJogo();
+
+            function construirJogo() {
+                var bloc = new Array(16);
+
+                for (var i = 0; i < bloc.length; i++) {
+                    bloc[i] = new Array(18);
+                }
+
+                for (var i = 0; i < bloc.length; i++) {
+                    for (var j = 0; j < bloc[0].length; j++) {
+                        if ((i == 0) && (j == 7 || j == 8 || j == 9 || j == 10 || j == 11 || j == 12 || j == 13)) {
+                            bloc[i][j] = parede;
+                        } else if ((i == 1) && (j == 1 || j == 2 || j == 3 || j == 4 || j == 5 || j == 6 || j == 7 || j == 13)) {
+                            bloc[i][j] = parede;
+                        } else if ((i == 2) && (j == 1 || j == 7 || j == 13)) {
+                            bloc[i][j] = parede;
+                        } else if ((i == 3) && (j == 1 || j == 5 || j == 9 || j == 10 || j == 11 || j == 12 || j == 13 || j == 14 || j == 15 || j == 16 || j == bloc[i].length - 1)) {
+                            bloc[i][j] = parede;
+                        } else if ((i == 4) && (j == 1 || j == 3 || j == 4 || j == 5 || j == 12 || j == 13 || j == bloc[i].length - 1)) {
+                            bloc[i][j] = parede;
+                        } else if ((i == 5) && (j == 1 || j == 12 || j == 13 || j == 15 || j == 17)) {
+                            bloc[i][j] = parede;
+                        } else if ((i == 6) && (j == 1 || j == 3 || j == 4 || j == 5 || j == 17)) {
+                            bloc[i][j] = parede;
+                        } else if ((i == 7) && (j == 0 || j == 1 || j == 5 || j == 6 || j == 7 || j == 8 || j == 10 || j == 11 || j == 12 || j == 14 || j == 16 || j == bloc[i].length - 1)) {
+                            bloc[i][j] = parede;
+                        } else if ((i == 8) && (j == 0 || j == 3 || j == 8 || j == 14 || j == 16)) {
+                            bloc[i][j] = parede;
+                        } else if ((i == 9) && (j == 0 || j == 10 || j == 13 || j == 14 || j == 16)) {
+                            bloc[i][j] = parede;
+                        } else if ((i == 10) && (j == 0 || j == 8 || j == 9 || j == 10 || j == 14 || j == 16)) {
+                            bloc[i][j] = parede;
+                        } else if ((i == 11) && (j == 0 || j == 1 || j == 2 || j == 3 || j == 4 || j == 14 || j == 16)) {
+                            bloc[i][j] = parede;
+                        } else if ((i == 12) && (j == 4 || j == 5 || j == 6 || j == 8 || j == 9 || j == 10 || j == 14 || j == 16)) {
+                            bloc[i][j] = parede;
+                        } else if ((i == 13) && (j == 6 || j == 12 || j == 16)) {
+                            bloc[i][j] = parede;
+                        } else if ((i == 14) && (j == 6 || j == 7 || j == 8 || j == 9 || j == 10 || j == 11 || j == 12 || j == 13 || j == 16)) {
+                            bloc[i][j] = parede;
+                        } else if ((i == bloc.length - 1) && (j == 13 || j == 14 || j == 15 || j == 16)) {
+                            bloc[i][j] = parede;
+                        } else {
+                            bloc[i][j] = piso;
+                        }
+                    }
+                }
+                //posX = 2;
+                //posY = 10;
+                bloc[posX][posY] = chibiusa;
+
+                bloc[4][6] = objetivo;
+                bloc[4][7] = objetivo;
+                bloc[4][8] = objetivo;
+                bloc[4][9] = objetivo;
+                bloc[4][10] = objetivo;
+                bloc[4][11] = objetivo;
+                bloc[5][6] = objetivo;
+                bloc[5][7] = objetivo;
+                bloc[5][8] = objetivo;
+                bloc[5][9] = objetivo;
+                bloc[5][10] = objetivo;
+                bloc[5][11] = objetivo;
+                bloc[6][6] = objetivo;
+                bloc[6][7] = objetivo;
+                bloc[6][8] = objetivo;
+                bloc[6][9] = objetivo;
+                bloc[6][10] = objetivo;
+                bloc[6][11] = objetivo;
+
+                bloc[2][9] = lunap;
+                bloc[2][11] = lunap;
+                bloc[3][2] = lunap;
+                bloc[3][3] = lunap;
+                bloc[5][5] = lunap;
+                bloc[7][15] = lunap;
+                bloc[8][4] = lunap;
+                bloc[8][11] = lunap;
+                bloc[9][3] = lunap;
+                bloc[9][5] = lunap;
+                bloc[9][6] = lunap;
+                bloc[9][7] = lunap;
+                bloc[9][12] = lunap;
+                bloc[10][4] = lunap;
+                bloc[10][6] = lunap;
+                bloc[10][11] = lunap;
+                bloc[10][12] = lunap;
+                bloc[11][10] = lunap;
+
+                return bloc;
+
+            }
+
+            function mostJogo() {
+                document.getElementById('caixa').style.zIndex = 3;
+
+                var jogo = document.getElementById('jogo');
+                var strg = '';
+
+                for (var i = 0; i < blocGam.length; i++) {
+                    strg += "<tr>";
+                    for (var j = 0; j < blocGam[i].length; j++) {
+
+                        strg += "<td>";
+
+                        if (blocGam[i][j] == parede) {
+                            strg += "<img src='block.png'>";
+                        }
+                        if (blocGam[i][j] == piso) {
+                            strg += "<img src='piso.png'>";
+                        }
+                        if (blocGam[i][j] == objetivo) {
+                            strg += "<img src='objetivo.png' >";
+                        }
+
+                        if (blocGam[i][j] == chibiusa) {
+                            strg += chibiusa;
+                        }
+                        if (blocGam[i][j] == lunap) {
+                            strg += "<img src='lunap.gif' width='25px'>";
+                        }
+
+                        strg += "</td>";
+                    }
+                    strg += "</tr>";
+                }
+                jogo.innerHTML = strg;
+                document.onkeydown = verificaTecla;
+
+            }
+
+            function verificaTecla(e) {
+
+                var codTecla;
+                if (window.event) {
+                    codTecla = window.event.keyCode;
+                } else {
+                    if (e) {
+                        codTecla = e.which;
+                    }
+                }
+
+                switch (codTecla) {
+                    case 39:
+                        mover(0, 1);
+                        break;
+                    case 37:
+                        mover(0, -1);
+                        break;
+                    case 38:
+                        mover(-1, 0);
+                        break;
+                    case 40:
+                        mover(1, 0);
+                        break;
+                }
+				verificarFim();
+            }
+
+            function mover(x, y) {
+
+                if (blocGam[parseInt(posX + x)][parseInt(posY + y)] != parede) {
+
+                    var podeMover = true;
+
+                    if (x == 0 && y == 1) {
+                        chibiusa = "<img class='chibi' src='chibiright.png'>";
+                    } else if (x == 0 && y == -1) {
+                        chibiusa = "<img class='chibi' src='chibileft.png'>";
+                    } else if (x == -1 && y == 0) {
+                        chibiusa = "<img class='chibi' src='chibiback.png'>";
+                    } else if (x == 1 && y == 0) {
+                        chibiusa = "<img class='chibi' src='chibifront.png'>";
+                    }
+
+
+
+                    if ((posX == 4 && posY == 6) || (posX == 4 && posY == 7) || (posX == 4 && posY == 8) || (posX == 4 && posY == 9) || (posX == 4 && posY == 10) || (posX == 4 && posY == 11)
+                            || (posX == 5 && posY == 6) || (posX == 5 && posY == 7) || (posX == 5 && posY == 8) || (posX == 5 && posY == 9) || (posX == 5 && posY == 10) || (posX == 5 && posY == 11)
+                            || (posX == 6 && posY == 6) || (posX == 6 && posY == 7) || (posX == 6 && posY == 8) || (posX == 6 && posY == 9) || (posX == 6 && posY == 10) || (posX == 6 && posY == 11)) {
+                        if (blocGam[parseInt(posX + x)][parseInt(posY + y)] == lunap) {
+
+                            if (blocGam[posX + x + x][posY + y + y] != parede && blocGam[posX + x + x][posY + y + y] != lunap) {
+                                blocGam[posX][posY] = objetivo;
+
+                                blocGam[posX + x + x][posY + y + y] = lunap;
+                            } else {
+                                podeMover = false;
+                            }
+                        }
+                        if (podeMover) {
+
+
+                            blocGam[posX][posY] = objetivo;
+                            posX = parseInt(posX) + x;
+                            posY = parseInt(posY) + y;
+                            blocGam[posX][posY] = chibiusa;
+
+                            var movCont = document.getElementById("movCont");
+                            var movConta = document.getElementById("movConta");
+                            movConta.innerHTML++;
+                            movCont.innerHTML++;
+
+                            mostJogo();
+                            verificarFim();
+                        }
+
+                    } else {
+                        if (blocGam[parseInt(posX + x)][parseInt(posY + y)] == lunap) {
+
+                            if (blocGam[posX + x + x][posY + y + y] != parede && blocGam[posX + x + x][posY + y + y] != lunap) {
+                                blocGam[posX][posY] = piso;
+
+                                blocGam[posX + x + x][posY + y + y] = lunap;
+                            } else {
+                                podeMover = false;
+                            }
+                        }
+                        if (podeMover) {
+
+
+                            blocGam[parseInt(posX)][parseInt(posY)] = piso;
+                            posX = parseInt(posX) + x;
+                            posY = parseInt(posY) + y;
+                            blocGam[posX][posY] = chibiusa;
+
+                            var movCont = document.getElementById("movCont");
+                            var movConta = document.getElementById("movConta");
+                            movConta.innerHTML++;
+                            movCont.innerHTML++;
+
+                            mostJogo();
+                            verificarFim();
+                        }
+                    }
+                }
+
+
+            }
+            function verificarFim() {
+
+                if (blocGam[4][6] == lunap && blocGam[4][7] == lunap && blocGam[4][8] == lunap && blocGam[4][9] == lunap && blocGam[4][10] == lunap && blocGam[4][11] == lunap
+                        && blocGam[5][6] == lunap && blocGam[5][7] == lunap && blocGam[5][8] == lunap && blocGam[5][9] == lunap && blocGam[5][10] == lunap && blocGam[5][11] == lunap
+                        && blocGam[6][6] == lunap && blocGam[6][7] == lunap && blocGam[6][8] == lunap && blocGam[6][9] == lunap && blocGam[6][10] == lunap && blocGam[6][11] == lunap) {
+                    document.getElementById('fim').style.zIndex = 2;
+                    document.getElementById('menu').remove();
+                    document.getElementById('caixa').remove();
+
+                }
+
+            }
+
+            function ajuda() {
+                alert("História: Chibiusa é uma menina que está na terra e veio do futuro, mas ela está com saudade de casa, a Tokyo de Cristal na lua onde estão seus pais. Ajude a Chibiusa a voltar para casa colocando a Luna P(Cabeça de Gato) nos lugares específicos. \n\ \n\Como Jogar: Use as setas do teclado para mover a Chibiusa, empurre a Luna P para os lugares indicados, pense bem em seus movimentos, boa sorte XD.");
+            }
+
+
+
+
+        </script>
+    </head>
+    <body>
+        <div id="menu">
+
+            <img id="titulo" src="titulo.gif">
+            <img id="chibimoon" src="chibi.png">
+            <img id="play" onclick="mostJogo()" src="play.png">
+            <img id="help" onclick="ajuda()" src="help.png">
+            <img id="playchibi" src="playchibi.gif">
+
+
+        </div>
+
+        <div id="caixa">
+            <span id="mov">Movimentos: </span><span id="movCont">0</span>
+            <button id="botao" onclick="ajuda()">Ajuda</button>
+            <table id="jogo">
+
+            </table>
+        </div>
+
+        <div id="fim">
+            <img id="pfin" align="left" src ="final.gif">
+            <img id="msgfim" align="right" src ="msgfinal.png">
+            <br><br>
+            <p id="msgfinal">Você completou o jogo com <span id="movConta">0</span> movimentos.</p>
+        </div>
+       
+		
+
+    </body>
+</html>
